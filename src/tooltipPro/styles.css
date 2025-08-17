@@ -1,0 +1,90 @@
+:root {
+    --bg: #0b0c10;
+    --card: #121318;
+    --muted: #9aa0a6;
+    --text: #e8eaed;
+    --brand: #f97316;
+    --brand-2: #ffbd59;
+    --border: #22242a;
+}
+
+#root {
+    height: 100%;
+}
+body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 20% -20%, #1c1f26, transparent),
+        var(--bg);
+    background-repeat: no-repeat;
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+        Helvetica, Arial;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+kbd {
+    background: #1b1e24;
+    border: 1px solid #2a2e36;
+    border-radius: 6px;
+    padding: 0 6px;
+    color: #cbd5e1;
+}
+
+/* floating surfaces */
+.tooltip-surface,
+.popover-surface {
+    position: fixed;
+    z-index: 50;
+    transform: translate3d(var(--x, 0), var(--y, 0), 0);
+    will-change: transform, opacity;
+}
+
+.tooltip-surface {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    border: 1px solid #2b2f36;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    max-width: 280px;
+    line-height: 1.25;
+    pointer-events: none; /* tooltips shouldn't capture pointer */
+    opacity: 0;
+    transition: opacity 0.12s ease;
+}
+
+.tooltip-surface[data-open="true"] {
+    opacity: 1;
+}
+
+.popover-surface {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    min-width: 220px;
+    color: var(--text);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transition: opacity 0.14s ease, transform 0.14s ease;
+}
+.popover-surface[data-open="true"] {
+    opacity: 1;
+}
+
+.floating-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
